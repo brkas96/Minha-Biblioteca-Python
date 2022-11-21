@@ -1,4 +1,4 @@
-# Printe livros :D (BOOKS)
+# Printe livros no Kindle, funciona tanto pelo site quanto pelo app :D (BOOKS)
 import os
 import time
 import PySimpleGUI as sg
