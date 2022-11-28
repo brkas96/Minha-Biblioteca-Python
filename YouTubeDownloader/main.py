@@ -4,7 +4,6 @@ import os
 import ctypes
 from pathlib import Path
 import sys
-import request
 
 def is_admin():
     try:
