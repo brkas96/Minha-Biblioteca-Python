@@ -48,7 +48,7 @@ def main():
 
     def openFolder():
         import subprocess
-        subprocess.Popen(r'explorer "C:\Users\bruno\Youtube Downloads"')
+        subprocess.Popen(r'explorer 'f'{user}' + "\Youtube Downloads")
 
     sg.theme('DarkRed1')
     tipo = ['video(.mp4)', 'audio(.mp3)']
