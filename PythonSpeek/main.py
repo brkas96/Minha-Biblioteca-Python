@@ -12,6 +12,20 @@ def is_admin():
         return False
 
 def main():
+    global texto
+
+    def falar():
+        try:
+            sg.popup('Seu audio esta sendo reproduzido, aguarde o término.')
+            with open(texto, 'r') as arquivo:
+                for linha in arquivo:
+                    frase = gtts.gTTS(linha, lang='pt-br')
+                    frase.save('temp.mp3')
+                    sleep(5)
+                    playsound('temp.mp3')
+                    break
+        except:
+            pass
 
     sg.theme('DarkBlue1')
     layout = [
@@ -35,18 +49,7 @@ def main():
             window['-FILESLB-'].Update(values['-IN-'].split(';'))
         if event == 'ler':
             texto = values['-IN-']
-            try:
-                create_folder()
-                sg.popup('Seu audio esta sendo reproduzido, aguarde o término.')
-                with open(texto, 'r') as arquivo:
-                    for linha in arquivo:
-                        frase = gtts.gTTS(linha, lang='pt-br')
-                        frase.save('frase.mp3')
-                        sleep(2)
-                        playsound('frase.mp3')
-                        sleep(2)
-            except:
-                pass
+            falar()
 
 if is_admin():
     main()
