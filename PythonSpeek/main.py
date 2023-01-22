@@ -1,9 +1,7 @@
 import gtts
 from playsound import playsound
 import PySimpleGUI as sg
-import os
 from time import sleep
-from pathlib import Path
 import ctypes
 import sys
 
@@ -14,13 +12,6 @@ def is_admin():
         return False
 
 def main():
-
-    def create_folder():
-        directory = "backupfiles"
-        user = str(Path.home())
-        parent_dir = user
-        path = os.path.join(parent_dir, directory)
-        os.mkdir(path)
 
     sg.theme('DarkBlue1')
     layout = [
@@ -53,7 +44,7 @@ def main():
                         frase.save('frase.mp3')
                         sleep(2)
                         playsound('frase.mp3')
-                        sleep(5)
+                        sleep(2)
             except:
                 pass
 
