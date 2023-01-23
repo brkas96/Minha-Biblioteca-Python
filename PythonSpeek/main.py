@@ -20,10 +20,13 @@ def main():
             #sg.popup('Seu audio esta sendo reproduzido, aguarde o término.')
             with open(texto, 'r') as arquivo:
                 for linha in arquivo:
-                    frase = gtts.gTTS(linha, lang='pt-br')
-                    frase.save('temp.mp3')
-                    playsound('temp.mp3')
-                    sleep(3)
+                    try:
+                        frase = gtts.gTTS(linha, lang='pt-br')
+                        frase.save('temp.mp3')
+                        sleep(2)
+                        playsound('temp.mp3')
+                    except:
+                        sg.popup('Houve um erro')
             os.remove('temp.mp3')
 
         except:
