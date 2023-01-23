@@ -4,6 +4,7 @@ import PySimpleGUI as sg
 from time import sleep
 import ctypes
 import sys
+import os
 
 def is_admin():
     try:
@@ -16,13 +17,14 @@ def main():
 
     def falar():
         try:
-            sg.popup('Seu audio esta sendo reproduzido, aguarde o término.')
+            #sg.popup('Seu audio esta sendo reproduzido, aguarde o término.')
             with open(texto, 'r') as arquivo:
                 for linha in arquivo:
                     frase = gtts.gTTS(linha, lang='pt-br')
                     frase.save('temp.mp3')
-                    sleep(5)
                     playsound('temp.mp3')
+                    sleep(3)
+            os.remove('temp.mp3')
 
         except:
             pass
