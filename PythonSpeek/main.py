@@ -23,14 +23,14 @@ def main():
                     frase.save('temp.mp3')
                     sleep(5)
                     playsound('temp.mp3')
-                    break
+
         except:
             pass
 
     sg.theme('DarkBlue1')
     layout = [
-        [sg.LBox([], size=(50, 5), key='-FILESLB-')],
-        [sg.Input(visible=False, enable_events=True, key='-IN-'), sg.FilesBrowse()],
+        [sg.Input([], size=(50, 5), key='-FILESLB-'),
+        sg.Input(visible=False, enable_events=True, key='-IN-'), sg.FilesBrowse()],
         [sg.Button('Ler', key='ler'),
          sg.Button('Sair', key='sair'),
          ]
