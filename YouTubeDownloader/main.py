@@ -1,4 +1,3 @@
-import shutil
 from pytube import YouTube
 import PySimpleGUI as sg
 import os
@@ -62,7 +61,7 @@ def main():
 
     ]
 
-    window = sg.Window('Youtube Downloader by Bruno Benvenutti', layout)
+    window = sg.Window('Youtube Downloader', layout)
 
     while True:
         event, values = window.read()
@@ -93,8 +92,6 @@ def main():
                 openFolder()
             except:
                 pass
-
-
         if event == 'sair':
             break
         if event == 'limpar':
