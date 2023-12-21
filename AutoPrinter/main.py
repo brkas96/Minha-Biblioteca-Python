@@ -1,4 +1,4 @@
-# Printe livros no Kindle, funciona tanto pelo site quanto pelo app :D (BOOKS)
+# Automação para tirar prints de algo que vc queira e que tenha muitas páginas...o uso indevido é total responsabilidade do usuário e não do desenvolvedor.
 import os
 import time
 import PySimpleGUI as sg
