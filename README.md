@@ -10,7 +10,7 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 
 ## Conteúdo
 
-- [Programa 1](#programa-1)
+- [AutoPrinter](#programa-1)
 - [Programa 2](#programa-2)
 - [Programa 3](#programa-3)
 
