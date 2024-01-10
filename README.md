@@ -6,7 +6,7 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 
 ## Sobre
 
-[Um conjunto de pequenas ferramentas incomuns para resolver problemas específicos, que podem ser útei para você ou não XD]
+[Um conjunto de pequenas ferramentas para resolver problemas específicos, que podem ser úteis para você ou não XD]
 
 ## Conteúdo
 
