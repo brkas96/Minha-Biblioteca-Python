@@ -14,10 +14,10 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 - [Programa 2](#programa-2)
 - [Programa 3](#programa-3)
 
-## Programa 1
+## Auto Printer 
 
-[Forneça uma breve descrição do primeiro programa, seu propósito e como usá-lo.]
+[Uma pequena automação para tirar screenshots de documentos ou apps que possuam páginas]
 
 ```python
-# Exemplo de uso do Programa 1
+# Exemplo de uso do AutoPrinter
 python programa1.py
