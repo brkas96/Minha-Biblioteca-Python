@@ -22,10 +22,13 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 # Exemplo de uso do AutoPrinter
 python main.py
 
-Ao executar o programa, será aberto uma interface gráfica contruida com a biblioteca PySimpleGUI
-- No primeiro input coloque o "nome do livro". Será criada uma pasta com esse nome, onde os prints seram salvos
+'''Ao executar o programa, será aberto uma interface gráfica contruida com a biblioteca PySimpleGUI.
+
+- No primeiro input coloque o "nome do livro". Será criada uma pasta com esse nome, onde os prints seram salvos.
+
 - No segundo input, indique a "quantidade de páginas". A quantidade de páginas, é a quantidade de vezes que
 o programa repetirá o processo de clicar para o lado direito pyautogui.press('right') tirará um print da tela
 e salvará na pasta cujo nome foi indicado, com uma contagem de páginas no nome de cada print, que foi indicada
 em "quantidade de páginas".
-- Os screenshots são salvos por padrão em:'C:/Livros/NomeLivro'
+
+- Os screenshots são salvos por padrão em:"C:/Livros/NomeLivro"'''
