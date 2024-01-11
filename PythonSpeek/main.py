@@ -6,36 +6,47 @@ import ctypes
 import sys
 import os
 
+
 def is_admin():
     try:
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
         return False
 
-def main():
-    global texto
 
-    def falar():
+def main():
+
+    def falar(texto):
+
         try:
-            #sg.popup('Seu audio esta sendo reproduzido, aguarde o término.')
+            # sg.popup('Seu audio esta sendo reproduzido, aguarde o término.')
             with open(texto, 'r') as arquivo:
                 for linha in arquivo:
                     try:
                         frase = gtts.gTTS(linha, lang='pt-br')
-                        frase.save('temp.mp3')
+                        sleep(3)
+                        frase.save(os.path.join("temp.mp3"))
                         sleep(2)
-                        playsound('temp.mp3')
+                        try:
+                            playsound(os.path.join("temp.mp3"))
+
+                        except FileNotFoundError:
+                            print("FileNotFoundError")
+                            playsound(os.path.abspath("temp.mp3"))
+                        except Exception as e:
+                            print(f"Erro ao reproduzir temp.mp3: {e}")
                     except:
                         sg.popup('Houve um erro')
-            os.remove('temp.mp3')
+            sleep(3)
+            #os.remove('temp.mp3')
 
         except:
             pass
 
     sg.theme('DarkBlue1')
     layout = [
-        [sg.Input([], size=(50, 5), key='-FILESLB-'),
-        sg.Input(visible=False, enable_events=True, key='-IN-'), sg.FilesBrowse()],
+        [sg.Text("Caminho do .txt: "), sg.Input([], size=(50, 5), key='-FILESLB-'),
+         sg.Input(visible=False, enable_events=True, key='-IN-'), sg.FilesBrowse()],
         [sg.Button('Ler', key='ler'),
          sg.Button('Sair', key='sair'),
          ]
@@ -54,13 +65,10 @@ def main():
             window['-FILESLB-'].Update(values['-IN-'].split(';'))
         if event == 'ler':
             texto = values['-IN-']
-            falar()
+            falar(texto)
 
 if is_admin():
     main()
 
 else:
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
-
-
-

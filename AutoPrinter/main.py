@@ -5,7 +5,7 @@ import PySimpleGUI as sg
 import pyautogui
 
 def printL():
-    pyautogui.alert('Coloque na tela a ser printada e aperte OK :D')
+    pyautogui.alert('Coloque na tela a ser printada e clique em OK')
     n = int(0)
     destino = (fullpath)
 
@@ -25,7 +25,7 @@ layout = [
     [sg.Input('', enable_events=True, key='-NUM-')],
     [sg.Button('Ok', key='-OK-'), sg.Button('Exit')]
 ]
-janela = sg.Window('AutoPrinter by BBC :D', layout)
+janela = sg.Window('AutoPrinter', layout)
 
 while True:
     event, values = janela.read()
@@ -41,7 +41,8 @@ while True:
         try:
             os.makedirs(fullpath)
             printL()
-        except:
+        except Exception as e:
+            print(f"Erro: {e}")
             pyautogui.alert('Houve um erro. Tente excluir o diretorio C:/Livros. Não use nomes muito longos para nomear a pasta do'
                             'livro e não use caracteres especiais.')
 janela.close()

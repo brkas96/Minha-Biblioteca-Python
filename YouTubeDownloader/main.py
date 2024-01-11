@@ -70,7 +70,9 @@ def main():
         if event == 'baixar':
             link = values['-INPUT-']
             if values['-COMBO-'] == 'video(.mp4)':
-                sg.popup('Aguarde enquanto o video é baixado.  :D')
+                sg.popup('Aguarde enquanto o video é baixado. O programa pode parar de responder durante o '
+                         'download porque o desenvolvedor tem preguiça de implementar uma barra de progresso.'
+                         'Mas fique calmo...seu video está sendo baixado!')
                 try:
                     DownloadVideo(link)
                     sg.popup('Download efetuado com sucesso.')
@@ -79,10 +81,13 @@ def main():
                 except:
                     pass
             if values['-COMBO-'] == 'audio(.mp3)':
-                sg.popup('Aguarde enquanto o audio é baixado.  :D')
+                sg.popup('Aguarde enquanto o audio é baixado. O programa pode parar de responder durante o '
+                         'download porque o desenvolvedor tem preguiça de implementar uma barra de progresso.'
+                         'Mas fique calmo...seu audio está sendo baixado!')
                 try:
                     DownloadMp3(link)
                     sg.popup('Download efetuado com sucesso.')
+                    openFolder()
                 except Exception as erro:
                     sg.popup(f"Não foi possível efetuar o download devido a um erro: {erro.__cause__}")
                 except:
