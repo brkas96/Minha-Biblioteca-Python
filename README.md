@@ -2,7 +2,7 @@
 
 Bem-vindo à Minha-Biblioteca-Python! Esta é uma coleção de pequenos programas escritos em Python, criados por mim.
 
-Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors)](https://github.com/sponsors/BrunoBenvenutti)
+Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors)](https://github.com/sponsors/brkas96)
 
 ## Sobre
 
