@@ -81,8 +81,10 @@ def interface(window):
     if not os.path.exists(DOWNLOADS_DIR):
         try:
             os.makedirs(DOWNLOADS_DIR)
+            sg.popup(f'Diretorio {DOWNLOADS_DIR} criado com sucesso')
         except Exception as e:
-            print(f"Não foi possível criar o diretorio de download: {e}")
+            print()
+            sg.popup(f"Não foi possível criar o diretorio de download: {e}")
             return
 
     while True:
@@ -96,7 +98,6 @@ def interface(window):
                 try:
                     thread_downvideo = threading.Thread(target=DownloadVideo, daemon=True, args=(link, ))
                     thread_downvideo.start()
-
                 except Exception as erro:
                     sg.popup(f"Não foi possível efetuar o download devido a um erro: {erro.__cause__}")
                 except:
@@ -129,7 +130,6 @@ if __name__ == "__main__":
     if is_admin():
         thread_interface = threading.Thread(target=interface, args=(window, ))
         thread_interface.start()
-
     else:
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
 
