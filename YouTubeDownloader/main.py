@@ -11,6 +11,7 @@ import threading # Implementar threads
 user = str(Path.home())
 DOWNLOADS_DIR = user + '\Youtube Downloads'
 
+
 sg.theme('DarkRed1')
 tipo = ['video(.mp4)', 'audio(.mp3)']
 layout = [
@@ -77,6 +78,12 @@ def openFolder():
 
 
 def interface(window):
+    if not os.path.exists(DOWNLOADS_DIR):
+        try:
+            os.makedirs(DOWNLOADS_DIR)
+        except Exception as e:
+            print(f"Não foi possível criar o diretorio de download: {e}")
+            return
 
     while True:
         event, values = window.read()
@@ -117,23 +124,13 @@ def interface(window):
         if event == 'limpar':
             pass
 
-def main():
-    if not os.path.exists(DOWNLOADS_DIR):
-        try:
-            os.makedirs(DOWNLOADS_DIR)
-        except Exception as e:
-            print(f"Não foi possível criar o diretorio de download: {e}")
-            return
 
-    thread_interface = threading.Thread(target=interface, args=(window, ))
-    thread_interface.start()
-    thread_interface.join()
+if __name__ == "__main__":
+    if is_admin():
+        thread_interface = threading.Thread(target=interface, args=(window, ))
+        thread_interface.start()
 
-
-if is_admin():
-    main()
-
-else:
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+    else:
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
 
 
