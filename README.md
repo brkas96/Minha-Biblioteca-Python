@@ -15,7 +15,7 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 - [Programa 3](#programa-3)
 
 ## Auto Printer 
-{#auto-printer}
+{auto-printer}
 
 [Uma pequena automação para tirar screenshots de livros, documentos ou apps que possuam páginas]
 
