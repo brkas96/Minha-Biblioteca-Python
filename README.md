@@ -10,11 +10,11 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 
 ## Conteúdo
 
-- [AutoPrinter](#programa-1)
+- [AutoPrinter](#auto-printer)
 - [DuckDnsUpdater](#programa-2)
 - [Programa 3](#programa-3)
 
-## Auto Printer 
+## Auto Printer {auto-printer}
 
 [Uma pequena automação para tirar screenshots de livros, documentos ou apps que possuam páginas]
 
@@ -32,10 +32,10 @@ e salvará na pasta cujo nome foi indicado, com uma contagem de páginas no nome
 em "quantidade de páginas".
 
 - Os screenshots são salvos por padrão em:"C:/Livros/NomeLivro"'''
+```
 
-```python
 ## Duck DNS Updater
-[Um programinha que atualiza IPV4 e IPV6 no Duck DNS. Usa a API da ipify para adquirir os endereços IPs públicos]
+[Um programa que atualiza IPV4 e IPV6 no Duck DNS. Usa a API da ipify para adquirir os endereços IPs públicos]
 
 
 
