@@ -11,11 +11,11 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 ## Conteúdo
 
 - [AutoPrinter](#auto-printer)
-- [DuckDnsUpdater](#duck-dns)
+- [DuckDnsUpdater](#duck-dns-updater)
 - [Programa 3](#programa-3)
 
 ## Auto Printer 
-{auto-printer}
+{#auto-printer}
 
 [Uma pequena automação para tirar screenshots de livros, documentos ou apps que possuam páginas]
 
@@ -36,7 +36,7 @@ em "quantidade de páginas".
 ```
 
 ## Duck DNS Updater
-{duck-dns}
+{duck-dns-updater}
 
 [Um programa que atualiza IPV4 e IPV6 no Duck DNS. Usa a API da ipify para adquirir os endereços IPs públicos]
 
@@ -48,10 +48,7 @@ python DuckDnsUpdater.py
 domain = "YOUR-DOMAIN"
 token = "YOUR-TOKEN"
 Após adicionar os valores as variaveis domain e token, compile o script com Pyinstaller, depois execute o .exe.
-O programa entrará em um loop que verifica os IPs públicos da máquina a cada 20 minutos e atualiza no Duck DNS.
-
-'''
-
+O programa entrará em um loop que verifica os IPs públicos da máquina a cada 20 minutos e atualiza no Duck DNS.'''
 ```
 
 
