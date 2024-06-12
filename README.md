@@ -35,8 +35,9 @@ em "quantidade de páginas".
 - Os screenshots são salvos por padrão em:"C:/Livros/NomeLivro"'''
 ```
 
-## Duck DNS Updater 
+## Duck DNS Updater
 {duck-dns}
+
 [Um programa que atualiza IPV4 e IPV6 no Duck DNS. Usa a API da ipify para adquirir os endereços IPs públicos]
 
 ```python
