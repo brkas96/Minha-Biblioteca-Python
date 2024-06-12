@@ -14,7 +14,8 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 - [DuckDnsUpdater](#duck-dns)
 - [Programa 3](#programa-3)
 
-## Auto Printer {auto-printer}
+## Auto Printer 
+{auto-printer}
 
 [Uma pequena automação para tirar screenshots de livros, documentos ou apps que possuam páginas]
 
@@ -34,7 +35,8 @@ em "quantidade de páginas".
 - Os screenshots são salvos por padrão em:"C:/Livros/NomeLivro"'''
 ```
 
-## Duck DNS Updater {duck-dns}
+## Duck DNS Updater 
+{duck-dns}
 [Um programa que atualiza IPV4 e IPV6 no Duck DNS. Usa a API da ipify para adquirir os endereços IPs públicos]
 
 ```python
