@@ -11,7 +11,7 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 ## Conteúdo
 
 - [AutoPrinter](#programa-1)
-- [Programa 2](#programa-2)
+- [DuckDnsUpdater](#programa-2)
 - [Programa 3](#programa-3)
 
 ## Auto Printer 
@@ -32,3 +32,10 @@ e salvará na pasta cujo nome foi indicado, com uma contagem de páginas no nome
 em "quantidade de páginas".
 
 - Os screenshots são salvos por padrão em:"C:/Livros/NomeLivro"'''
+
+```python
+## Duck DNS Updater
+[Um programinha que atualiza IPV4 e IPV6 no Duck DNS. Usa a API da ipify para adquirir os endereços IPs públicos]
+
+
+
