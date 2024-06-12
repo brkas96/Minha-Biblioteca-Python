@@ -11,7 +11,7 @@ Apoie este projeto: [![Patrocine este projeto](https://img.shields.io/badge/-Spo
 ## Conteúdo
 
 - [AutoPrinter](#auto-printer)
-- [DuckDnsUpdater](#programa-2)
+- [DuckDnsUpdater](#duck-dns)
 - [Programa 3](#programa-3)
 
 ## Auto Printer {auto-printer}
@@ -34,8 +34,22 @@ em "quantidade de páginas".
 - Os screenshots são salvos por padrão em:"C:/Livros/NomeLivro"'''
 ```
 
-## Duck DNS Updater
+## Duck DNS Updater {duck-dns}
 [Um programa que atualiza IPV4 e IPV6 no Duck DNS. Usa a API da ipify para adquirir os endereços IPs públicos]
+
+```python
+# Exemplo de uso do DuckDNSUpdater
+python DuckDnsUpdater.py
+
+'''No código do programa adicione o nome so seu dominio e seu token, adquiridos no site oficial do Duck DNS.
+domain = "YOUR-DOMAIN"
+token = "YOUR-TOKEN"
+Após adicionar os valores as variaveis domain e token, compile o script com Pyinstaller, depois execute o .exe.
+O programa entrará em um loop que verifica os IPs públicos da máquina a cada 20 minutos e atualiza no Duck DNS.
+
+'''
+
+```
 
 
 
