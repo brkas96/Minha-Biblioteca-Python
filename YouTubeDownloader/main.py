@@ -5,8 +5,12 @@ from pathlib import Path
 import ctypes
 import sys
 import subprocess
-import threading # Implementar threads
+import threading
+import pydub
+
 # implementar barra de progresso
+# implementar download de playlist
+# implementar conversão de video para mp3 da forma correta, com pydub
 
 user = str(Path.home())
 DOWNLOADS_DIR = user + '\Youtube Downloads'
