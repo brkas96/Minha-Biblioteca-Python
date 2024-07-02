@@ -123,11 +123,17 @@ def DownloadMp3(link):
     yt = YouTube(link)
     video = yt.streams.filter(only_audio=True).first()
     print(f"video: {video}")
-    out_file = video.download(output_path=DOWNLOADS_DIR)
-    print(f"out_file: {out_file}")
-    c = converter_para_mp3(out_file)
-    if c:
-        os.remove(out_file)
+    size = video.filesize_mb
+    print(f"Tamanho do arquivo: {size}mb")
+    try:
+        out_file = video.download(output_path=DOWNLOADS_DIR)
+        print("Download do audio do video concluido")
+        print(f"out_file: {out_file}")
+        c = converter_para_mp3(out_file)
+        if c:
+            os.remove(out_file)
+    except Exception as e:
+        print(f"Erro ao baixar mp3: {e}")
 
 
 def progress_bar(stream, chunk, file_handle, bytes_remaining):
@@ -142,13 +148,14 @@ def DownloadVideo(link):
     print(youtubeObject)
     youtubeObject = youtubeObject.streams.get_highest_resolution()
     size = youtubeObject.filesize_mb
-    print(f'{size}mb')
+    print(f'Tamanho do arquivo: {size}mb')
 
     try:
         destination = DOWNLOADS_DIR
         youtubeObject.download(output_path=destination)
-        window['-PROGRESS-'].update(100)
-    except:
+        print("Download do video terminou")
+    except Exception as e:
+        print(f"Erro ao baixar video: {e}")
         return
 
 
