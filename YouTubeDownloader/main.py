@@ -16,7 +16,7 @@ import zipfile
 
 
 user = str(Path.home())
-DOWNLOADS_DIR = user + '\Youtube Downloads'
+DOWNLOADS_DIR = user + "/Youtube Downloads/"
 
 sg.theme('Dark Blue 7')
 tipo = ['video(.mp4)', 'audio(.mp3)']
@@ -26,9 +26,9 @@ layout = [
     [sg.Combo(tipo, 'Escolha o formato', key='-COMBO-', size=(15, 15))],
     [sg.Button('Download', key='baixar')],
     [sg.Text('_' * 50)],
-    [sg.Button('Limpar', key='limpar'),
-     sg.Button('Abrir Pasta', key='open'),
-     sg.Button('Sair', key='sair')]
+    [sg.Button('Limpar Link', key='limpar')],
+    [sg.Button('Abrir Pasta', key='open')],
+    [sg.Button('Sair', key='sair')]
 
 ]
 
@@ -113,6 +113,7 @@ def converter_para_mp3(video_path):
     try:
         # Exportar como MP3
         audio.export(output_path, format="mp3")
+        print("Audio foi convertido para mp3 com sucesso")
         return True
     except Exception as e:
         print(f"Erro ao converter para mp3: {e}")
@@ -120,18 +121,26 @@ def converter_para_mp3(video_path):
 
 
 def DownloadMp3(link):
+    if not os.path.exists(DOWNLOADS_DIR + "audios"):
+        try:
+            os.mkdir(DOWNLOADS_DIR + 'audios')
+        except Exception as e:
+            print(f"Erro ao criar pasta audios: {e}")
+
     yt = YouTube(link)
     video = yt.streams.filter(only_audio=True).first()
     print(f"video: {video}")
     size = video.filesize_mb
     print(f"Tamanho do arquivo: {size}mb")
     try:
-        out_file = video.download(output_path=DOWNLOADS_DIR)
+        audios_path = DOWNLOADS_DIR + "audios"
+        out_file = video.download(output_path=audios_path)
         print("Download do audio do video concluido")
         print(f"out_file: {out_file}")
         c = converter_para_mp3(out_file)
         if c:
             os.remove(out_file)
+        openFolder('audios')
     except Exception as e:
         print(f"Erro ao baixar mp3: {e}")
 
@@ -144,6 +153,13 @@ def progress_bar(stream, chunk, file_handle, bytes_remaining):
 
 
 def DownloadVideo(link):
+
+    if not os.path.exists(DOWNLOADS_DIR + 'videos'):
+        try:
+            os.mkdir(DOWNLOADS_DIR + 'videos')
+        except Exception as e:
+            print(f"Erro ao criar pasta videos: {e}")
+
     youtubeObject = YouTube(link)
     print(youtubeObject)
     youtubeObject = youtubeObject.streams.get_highest_resolution()
@@ -151,16 +167,20 @@ def DownloadVideo(link):
     print(f'Tamanho do arquivo: {size}mb')
 
     try:
-        destination = DOWNLOADS_DIR
+        destination = DOWNLOADS_DIR + 'videos'
         youtubeObject.download(output_path=destination)
         print("Download do video terminou")
+        openFolder('videos')
     except Exception as e:
         print(f"Erro ao baixar video: {e}")
         return
 
 
-def openFolder():
-    subprocess.Popen(r'explorer 'f'{user}' + "\Youtube Downloads")
+def openFolder(path):
+    if path != '':
+        subprocess.Popen(r'explorer 'f'{user}' + fr"\Youtube Downloads\{path}")
+    else:
+        subprocess.Popen(r'explorer 'f'{user}' + "\Youtube Downloads")
 
 
 def interface(window):
@@ -193,17 +213,16 @@ def interface(window):
                 try:
                     thread_downmp3 = threading.Thread(target=DownloadMp3, daemon=True, args=(link,))
                     thread_downmp3.start()
-                    openFolder()
                 except Exception as erro:
                     sg.popup(f"Não foi possível efetuar o download devido a um erro: {erro.__cause__}")
                 except:
                     pass
             elif values['-COMBO-'] == 'Escolha o formato':
-                sg.popup('Escolha o formato do arquivo, video ou mp3.')
+                sg.popup('Escolha o formato do arquivo, video(MP4) ou audio(MP3).')
                 pass
         if event == 'open':
             try:
-                openFolder()
+                openFolder('')
             except:
                 pass
         if event == 'sair':
