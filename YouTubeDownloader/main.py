@@ -10,7 +10,6 @@ import requests
 import shutil
 import zipfile
 
-
 # implementar barra de progresso
 # implementar download de playlist
 # implementar conversão de video para mp3 da forma correta, com pydub - OK
@@ -19,20 +18,21 @@ import zipfile
 user = str(Path.home())
 DOWNLOADS_DIR = user + '\Youtube Downloads'
 
-sg.theme('DarkRed1')
+sg.theme('Dark Blue 7')
 tipo = ['video(.mp4)', 'audio(.mp3)']
 layout = [
-    [sg.Text('Cole o link aqui: '), sg.InputText('', do_not_clear=False, key='-INPUT-')],
-    [sg.ProgressBar(100, orientation='h', size=(20, 20), key='-PROGRESS-')],
-    [sg.Button('Download', key='baixar'),
-     sg.Combo(tipo, 'Escolha o formato', key='-COMBO-', size=(15, 15)),
-     sg.Button('Limpar', key='limpar'),
+    [sg.Text('YouTube Link: '), sg.InputText('', do_not_clear=False, key='-INPUT-')],
+    #[sg.Text("Download Progress: "), sg.ProgressBar(100, orientation='h', size=(25, 25), key='-PROGRESS-')],
+    [sg.Combo(tipo, 'Escolha o formato', key='-COMBO-', size=(15, 15))],
+    [sg.Button('Download', key='baixar')],
+    [sg.Text('_' * 50)],
+    [sg.Button('Limpar', key='limpar'),
      sg.Button('Abrir Pasta', key='open'),
      sg.Button('Sair', key='sair')]
 
 ]
 
-window = sg.Window('Youtube Downloader', layout)
+window = sg.Window('Youtube Downloader', layout, element_justification='c', margins=(20, 20))
 
 
 def is_admin():
@@ -96,7 +96,6 @@ def extract_ffmpeg_bin(zip_path):
 
     ffmpeg_exe = os.path.join(final_bin_path, 'ffmpeg.exe')
     if os.path.exists(ffmpeg_exe):
-        print("FFmpeg extraído com sucesso.")
         return ffmpeg_exe
     else:
         raise Exception("Não foi possível extrair o ffmpeg.exe")
@@ -131,11 +130,11 @@ def DownloadMp3(link):
         os.remove(out_file)
 
 
-'''def progress_bar(stream, chunk, file_handle, bytes_remaining):
+def progress_bar(stream, chunk, file_handle, bytes_remaining):
     total_bytes = stream.filesize
     bytes_downloaded = total_bytes - bytes_remaining
     progress_percent = int(bytes_downloaded / total_bytes * 100)
-    window['-PROGRESS-'].update(progress_percent)'''
+    window['-PROGRESS-'].update(progress_percent)
 
 
 def DownloadVideo(link):
